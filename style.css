@@ -19,17 +19,17 @@
     opacity: 0;
 }
 
+/* --- NEW, IMPROVED VIDEO STYLE --- */
 #splash-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures video covers the entire screen without distortion */
-}
-/* --- NEW CODE FOR MOBILE --- */
-/* On smaller screens, switch to 'contain' to prevent "zooming in" */
-@media (max-width: 768px) {
-    #splash-video {
-        object-fit: contain;
-    }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Puts video behind any potential text on the splash screen */
 }
 body { 
     font-family: 'Inter', sans-serif; 
