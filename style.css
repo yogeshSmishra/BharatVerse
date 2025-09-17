@@ -24,6 +24,13 @@
     height: 100%;
     object-fit: cover; /* Ensures video covers the entire screen without distortion */
 }
+/* --- NEW CODE FOR MOBILE --- */
+/* On smaller screens, switch to 'contain' to prevent "zooming in" */
+@media (max-width: 768px) {
+    #splash-video {
+        object-fit: contain;
+    }
+}
 body { 
     font-family: 'Inter', sans-serif; 
     background-color: #fdfbf6; /* Warmer off-white background */
