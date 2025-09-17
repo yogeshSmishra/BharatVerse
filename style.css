@@ -12,6 +12,7 @@
     align-items: center;
     transition: opacity 0.75s ease-out; /* Smooth fade-out transition */
     pointer-events: none; /* Allows clicks to go through after it's faded */
+    overflow: hidden;
 }
 
 /* This class will be added by JavaScript to trigger the fade-out */
@@ -19,17 +20,15 @@
     opacity: 0;
 }
 
-/* --- NEW, IMPROVED VIDEO STYLE --- */
+/* --- THIS IS THE DEFINITIVE FIX --- */
 #splash-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1; /* Puts video behind any potential text on the splash screen */
+    width: 100vw;   /* 100% of the viewport width */
+    height: 100vh;  /* 100% of the viewport height */
+    object-fit: cover;
+    position: fixed; /* Fix it to the viewport */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place it behind other splash screen content */
 }
 body { 
     font-family: 'Inter', sans-serif; 
