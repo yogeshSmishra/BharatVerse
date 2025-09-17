@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BharatVerse - An AR Cultural Heritage Experience</title>
+    
+    <!-- External Stylesheet Link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts and Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Model Viewer -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+<body class="antialiased">
+    <div id="splash-screen">
+    <video id="splash-video" src="Assets/Logo_animation.mp4" autoplay muted playsinline></video>
+    </div>
+    <div id="main-container" class="hide">
+        <div class="min-h-screen flex flex-col">
+            <!-- Header -->
+            <header id="main-header" class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-20 transition-all duration-300">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center">
+                    <!-- Make sure Bharatverse.png is in the assets folder -->
+                    <img src="Assets/Images/Bharatverse.png" alt="BharatVerse Logo" class="h-12 w-12 mr-4">
+                    <h1 class="text-3xl font-extrabold text-[#2a3a8a]">BharatVerse</h1>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="flex-grow">
+                <!-- Selection Screen -->
+                <section id="selection-screen">
+                    <!-- Hero Section -->
+                    <div class="relative bg-gradient-to-b from-blue-50 to-[#fdfbf6] pt-16 pb-20">
+                        <div class="text-center max-w-4xl mx-auto px-4">
+                            <h2 class="text-5xl md:text-6xl font-extrabold text-[#2a3a8a]">Explore. Preserve. Connect.</h2>
+                            <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">Step into India's rich history. Our digital heritage project brings monuments to life through immersive Augmented Reality, right from your device.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Monuments Grid -->
+                    <div class="py-16">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div id="monument-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                                <!-- Monument cards will be dynamically inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Viewer Screen (Initially Hidden) -->
+                <section id="viewer-screen" class="py-16 bg-gray-50 hide">
+                    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="mb-8">
+                            <button id="back-button" class="bg-amber-500 text-white px-5 py-2.5 rounded-full shadow-md font-semibold hover:bg-amber-600 transition-all duration-300 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                                Back to Monuments
+                            </button>
+                        </div>
+                        <div class="text-center mb-12">
+                            <h3 id="viewer-title" class="text-4xl font-extrabold text-gray-800"></h3>
+                            <p id="hotspot-prompt" class="mt-2 text-gray-500">Click on the pulsating hotspots on the model to learn more.</p>
+                        </div>
+                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden p-4 sm:p-8">
+                            <model-viewer
+                                id="heritage-viewer" alt="3D model of a heritage site"
+                                ar shadow-intensity="1" camera-controls auto-rotate>
+                                <button slot="ar-button" id="ar-button">View in Your Space</button>
+                            </model-viewer>
+                        </div>
+                        <div id="viewer-description-container" class="mt-12 bg-white rounded-2xl shadow-xl p-8">
+                            <h4 class="text-2xl font-bold mb-4 text-gray-800">Historical Narrative</h4>
+                            <p id="viewer-description" class="text-gray-600 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="bg-gray-800 text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-gray-400">
+                    <p>&copy; 2025 BharatVerse Initiative. All Rights Reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
